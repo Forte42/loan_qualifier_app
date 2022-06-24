@@ -103,26 +103,25 @@ def find_qualifying_loans(bank_data, credit_score, debt, income, loan, home_valu
     return bank_data_filtered
 
 
-def save_qualifying_loans():
+def save_qualifying_loans(qualifying_loans):
     """Saves the qualifying loans to a CSV file.
 
     Args:
         qualifying_loans (list of lists): The qualifying bank loans.
     """
-    # Header defined
-header = ["bank_data", "credit_score", "debt", "income", "loan", "home_value"]
-
-    # Prep to write (MOVE TO UTILS LATER)
-csvpath = Path("qualifying_loans.csv")
-with open(csvpath, 'w', newline='') as csvfile:
-    csvwriter = csv.writer(csvfile)
+# Header and defined
+    header = ["bank_data", "credit_score", "debt", "income", "loan", "home_value"]   
+# Prep to write (MOVE TO UTILS LATER)
+    csvpath = Path("qualifying_loans.csv")
+    with open(csvpath, 'w', newline='') as csvfile:
+        csvwriter = csv.writer(csvfile)
 
     # Header writes first
-    csvwriter.writerow(header)
+        csvwriter.writerow(header)
 
     #Then the rest 
-    for row in (save_qualifying_loans()):
-        csvwriter.writerow(row.values())
+        for row in (qualifying_loans):
+            csvwriter.writerow(row)
 
 
 def run():

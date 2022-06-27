@@ -12,7 +12,7 @@ import questionary
 from pathlib import Path
 import csv
 
-from qualifier.utils.fileio import load_csv
+import qualifier.utils.fileio as fileio
 
 from qualifier.utils.calculators import (
     calculate_monthly_debt_ratio,
@@ -37,7 +37,7 @@ def load_bank_data():
     if not csvpath.exists():
         sys.exit(f"Oops! Can't find this path: {csvpath}")
 
-    return load_csv(csvpath)
+    return fileio.load_csv(csvpath)
 
 
 def get_applicant_info():
@@ -109,21 +109,17 @@ def save_qualifying_loans(qualifying_loans):
     Args:
         qualifying_loans (list of lists): The qualifying bank loans.
     """
-# Header and defined
-    header = ["bank_data", "credit_score", "debt", "income", "loan", "home_value"]   
-# Prep to write (MOVE TO UTILS LATER)
+# Header defined
+    header = ["bank_data", "credit_score", "debt", "income", "loan", "home_value"]
+
+#Save location identified
     csvpath = Path("qualifying_loans.csv")
-    with open(csvpath, 'w', newline='') as csvfile:
-        csvwriter = csv.writer(csvfile)
 
-    # Header writes first
-        csvwriter.writerow(header)
-
-    #Then the rest 
-        for row in (qualifying_loans):
-            csvwriter.writerow(row)
-
-
+# Save the list of loans to csv file
+    fileio.save_csv(header, qualifying_loans, csvpath)
+    
+    print(f"List of loan options saved at: {csvpath}")
+ 
 def run():
     """The main function for running the script."""
 
@@ -138,7 +134,6 @@ def run():
         bank_data, credit_score, debt, income, loan_amount, home_value
     )
 
-    # print(qualifying_loans)
 
     # Save qualifying loans
     save_qualifying_loans(qualifying_loans)

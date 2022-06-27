@@ -10,7 +10,6 @@ import sys
 import fire
 import questionary
 from pathlib import Path
-import csv
 
 import qualifier.utils.fileio as fileio
 
@@ -109,16 +108,29 @@ def save_qualifying_loans(qualifying_loans):
     Args:
         qualifying_loans (list of lists): The qualifying bank loans.
     """
+
+# Determine if user wants their loan list saved
+
+    save_loan = questionary.confirm("Would you like to save your loan options?").ask()
+    if save_loan == True:
+
 # Header defined
-    header = ["bank_data", "credit_score", "debt", "income", "loan", "home_value"]
+        header = ["bank_data", "credit_score", "debt", "income", "loan", "home_value"]
 
 #Save location identified
-    csvpath = Path("qualifying_loans.csv")
+        csvpath = questionary.text("Where would you like your loan file saved?").ask()
+        csvpath = Path(csvpath)
+        if not csvpath.exists():
+            sys.exit(f"Oops! Can't find this path: {csvpath}")
 
 # Save the list of loans to csv file
-    fileio.save_csv(header, qualifying_loans, csvpath)
+        fileio.save_csv(header, qualifying_loans, csvpath)
     
-    print(f"List of loan options saved at: {csvpath}")
+        print(f"List of loan options saved at: {csvpath}")
+        
+    else:
+        print("Thank you for using my loan finding app! :)")
+        
  
 def run():
     """The main function for running the script."""
@@ -129,11 +141,10 @@ def run():
     # Get the applicant's information
     credit_score, debt, income, loan_amount, home_value = get_applicant_info()
 
-    # # Find qualifying loans
+    # Find qualifying loans
     qualifying_loans = find_qualifying_loans(
         bank_data, credit_score, debt, income, loan_amount, home_value
     )
-
 
     # Save qualifying loans
     save_qualifying_loans(qualifying_loans)

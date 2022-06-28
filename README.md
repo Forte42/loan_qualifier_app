@@ -6,19 +6,27 @@ This project prompts the user to enter financial details in order to determine w
 
 ## Technologies
 
-This code was written on Windows 11 running python 3.7.13. It also uses Python Fire version (0.4.0) and Questionary version (1.10.0)
+This code was written on Windows 11 running python 3.7.13. It also uses Python Fire (version 0.4.0) and Questionary (version 1.10.0)
 
 ---
 
 ## Installation Guide
 
-Both fire and questionary can be installed using the pip install function.
+Both Fire and Questionary can be installed using the pip install function.
 
 ---
 
 ## Usage
 
-This section should include screenshots, code blocks, or animations explaining how to use your project.
+To use this app, simply run the app in your command line and follow the questionary prompts! You will first be asked to provide a loan data set to the app. You may use the included data set I've provided or you may provide your own csv file. If you are prompted with the message:
+
+```"Oops! Can't find this path: {csvpath}"```
+
+Then double check that you've provided a valid path or try again. You may also receive this prompt if you provide an invalid save location at the end of this app.
+
+Here is an example of the app in action!
+
+![Screenshot of the app.](data\Images\loan_qualifier_screenshot.png)
 
 ---
 

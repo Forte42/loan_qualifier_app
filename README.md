@@ -26,7 +26,7 @@ Then double check that you've provided a valid path or try again. You may also r
 
 Here is an example of the app in action!
 
-![Screenshot of the app.](data\Images\loan_qualifier_screenshot.png)
+![Screenshot of the app.](\data\Images\loan_qualifier_screenshot.png)
 
 ---
 

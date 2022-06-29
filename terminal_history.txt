@@ -1,0 +1,50 @@
+   17  git add qualifier/utils/fileio.py 
+   18  git add qualifying_loans.csv 
+   19  git config core.autocrlf true
+   20  git status
+   21  git commit -m "Moved saving functionality to utils folder."
+   22  git push
+   23  git push
+   24  python app.py
+   25  python app.py
+   26  python app.py
+   27  python app.py
+   28  python app.py
+   29  python app.py
+   30  python app.py
+   31  python app.py
+   32  python app.py
+   33  python app.py
+   34  python app.py
+   35  python app.py
+   36  python app.py
+   37  python app.py
+   38  python app.py
+   39  git status
+   40  git add app.py 
+   41  git add qualifier/utils/fileio.py 
+   42  git add qualifying_loans.csv 
+   43  git commit -m "Questionary function added for file saving."
+   44  git push
+   45  fire.version
+   46  fire --version
+   47  pip show fire
+   48  pip show questionary
+   49  pip show fire
+   50  git status
+   51  git add README.md 
+   52  git commit -m "Mostly finished, just add usage notes to readme."
+   53  git push
+   54  git status
+   55  git add data/Images/
+   56  git status
+   57  git add README.md 
+   58  git status
+   59  git commit -m "Finished app with updated readme"
+   60  git push
+   61  data\Images\loan_qualifier_screenshot.png
+   62  git status
+   63  git add README.md 
+   64  git commit -m "Troubleshooting README image"
+   65  git push
+   66  history 50 > terminal_history.txt
